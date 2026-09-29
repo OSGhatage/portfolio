@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}About &middot; {{ resume.identity.name }}{% endblock %}
+{% block description %}{{ clean(resume.bio.short) or resume.identity.headline }}{% endblock %}
+
+{% block content %}
+
+<h1>About</h1>
+
+{% if clean(resume.bio.short) %}
+<p class="lede">{{ resume.bio.short }}</p>
+{% endif %}
+
+{% if clean(resume.identity.specialism.differentiator) %}
+<p>{{ resume.identity.specialism.differentiator }}</p>
+{% endif %}
+
+<section aria-labelledby="h-now">
+  <h2 id="h-now">Current work</h2>
+  <p>
+    Technical Support Person at the Regional Remote Sensing Centre &ndash; West,
+    NRSC/ISRO, Jodhpur, working through AGA Enterprises. Leads operational desert
+    locust monitoring and bulletin production for the Scheduled Thar Desert
+    region, and maintains Python pipelines for large-scale satellite processing.
+  </p>
+</section>
+
+<section aria-labelledby="h-exp">
+  <h2 id="h-exp">Experience</h2>
+  <dl class="entries">
+    {% for job in resume.experience %}
+    <div class="entry">
+      <dt>
+        <span class="entry-title">{{ job.role }}</span>
+        <span class="entry-org">{{ job.organisation }}{% if clean(job.parent) %}, {{ job.parent }}{% endif %}{% if clean(job.via) %} <span class="muted">(via {{ job.via }})</span>{% endif %}</span>
+        <span class="entry-meta">{{ job.start }} &ndash; {% if clean(job.end) %}{{ job.end }}{% else %}present{% endif %}{% if clean(job.location) %} &middot; {{ job.location }}{% endif %}</span>
+      </dt>
+      {% for point in job.highlights %}
+      <dd>{{ point }}</dd>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </dl>
+</section>
+
+<section aria-labelledby="h-edu">
+  <h2 id="h-edu">Education</h2>
+  <dl class="entries">
+    {% for item in resume.education %}
+    <div class="entry">
+      <dt>
+        <span class="entry-title">{{ item.degree }}</span>
+        <span class="entry-org">{{ item.institution }}{% if clean(item.location) %}, {{ item.location }}{% endif %}</span>
+        <span class="entry-meta">{{ item.start }} &ndash; {{ item.end }}{% if clean(item.score) %} &middot; {{ item.score }}{% endif %}{% if clean(item.grade) %} &middot; {{ item.grade }}{% endif %}</span>
+        {% if clean(item.thesis) %}<span class="entry-thesis">Thesis: {{ item.thesis }}</span>{% endif %}
+      </dt>
+    </div>
+    {% endfor %}
+  </dl>
+</section>
+
+<section aria-labelledby="h-skills">
+  <h2 id="h-skills">Technical skills</h2>
+  {% for group in resume.competencies %}
+  <div class="skill-group">
+    <h3>{{ group.group }}</h3>
+    <ul>
+      {% for item in group['items'] %}<li>{{ item }}</li>{% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</section>
+
+<section aria-labelledby="h-certs">
+  <h2 id="h-certs">Certifications</h2>
+  <ul class="std-list">
+    {% for cert in resume.certifications %}
+    <li>{{ cert.name }}, {{ cert.issuer }}{% if clean(cert.date) %} ({{ cert.date }}){% endif %}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section aria-labelledby="h-langs">
+  <h2 id="h-langs">Languages</h2>
+  <ul class="std-list">
+    {% for item in resume.languages %}<li>{{ item.language }} &mdash; {{ item.level }}</li>{% endfor %}
+  </ul>
+</section>
+
+<section aria-labelledby="h-contact">
+  <h2 id="h-contact">Contact</h2>
+
+  <p>
+    Working hours are {{ resume.identity.location.timezone }}.
+    Enquiries are answered within {{ resume.contact.response_window }}.
+  </p>
+
+  {% if clean(resume.contact.work_email) %}
+  <p><a href="mailto:{{ resume.contact.work_email }}">{{ resume.contact.work_email }}</a></p>
+  {% else %}
+  {# The prompt asks for a work email. It has not been supplied, and the
+     personal gmail is not substituted for it. #}
+  <p class="empty-state">
+    A work email address has not been published yet.
+  </p>
+  {% endif %}
+
+  <ul class="link-list">
+    {% if clean(resume.contact.links.github) %}<li><a href="{{ resume.contact.links.github }}" rel="me">GitHub</a></li>{% endif %}
+    {% if clean(resume.contact.links.linkedin) %}<li><a href="{{ resume.contact.links.linkedin }}" rel="me">LinkedIn</a></li>{% endif %}
+    {% if clean(resume.contact.links.orcid) %}<li><a href="{{ resume.contact.links.orcid }}" rel="me">ORCID</a></li>{% endif %}
+    {% if clean(resume.contact.links.google_scholar) %}<li><a href="{{ resume.contact.links.google_scholar }}" rel="me">Google Scholar</a></li>{% endif %}
+  </ul>
+
+  <p class="muted small">
+    Go Lab Geospatial is a working name and the business is not yet registered.
+    {{ clean(resume.identity.relocation) or '' }}
+  </p>
+</section>
+
+{% endblock %}

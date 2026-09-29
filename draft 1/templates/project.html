@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block title %}{{ project.title }} &middot; {{ resume.identity.name }}{% endblock %}
+{% block description %}{{ clean(project.summary) or project.title }}{% endblock %}
+
+{% block content %}
+
+<article class="project">
+  <p class="back-link"><a href="{{ '../' * depth }}index.html">&larr; All projects</a></p>
+
+  <h1>{{ project.title }}</h1>
+
+  {% if clean(project.summary) %}
+  <p class="lede">{{ project.summary }}</p>
+  {% endif %}
+
+  <p class="card-meta">
+    {% if clean(project.kind) and project.kind == 'research' %}
+    <span class="pill pill-research">research work</span>
+    {% endif %}
+    {% if clean(project.date) %}<span>{{ project.date }}</span>{% endif %}
+    {% if clean(project.status) %}<span class="pill">{{ project.status }}</span>{% endif %}
+    {% for tag in project.tags or [] %}<span class="tag">{{ tag }}</span>{% endfor %}
+  </p>
+
+  {# Research projects must not read as commissioned client work. #}
+  {% if clean(project.kind) and project.kind == 'research' %}
+  <p class="callout">
+    <strong>This is research work, not a client engagement.</strong> It was carried
+    out as an independent investigation rather than a paid project, and is shown
+    here because the method and the validation are the same ones used for client
+    work. Client projects are added to this site as they exist.
+  </p>
+  {% endif %}
+
+  {% if clean(project.problem) %}
+  <section aria-labelledby="h-problem">
+    <h2 id="h-problem">The problem</h2>
+    <p>{{ project.problem }}</p>
+  </section>
+  {% endif %}
+
+  {% if project.data %}
+  <section aria-labelledby="h-data">
+    <h2 id="h-data">Data</h2>
+    <p>Every source used, with a link to where it came from.</p>
+    <ul class="data-list">
+      {% for item in project.data %}
+      <li>
+        <span class="data-name">{{ item.name }}</span>
+        {% if clean(item.description) %}<span class="data-desc">{{ item.description }}</span>{% endif %}
+        {% if clean(item.url) %}<a href="{{ item.url }}" rel="noopener">{{ item.url_label or 'Source' }}</a>{% endif %}
+        {% if clean(item.licence) %}<span class="licence">{{ item.licence }}</span>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if clean(project.method) %}
+  <section aria-labelledby="h-method">
+    <h2 id="h-method">Method</h2>
+    <p>{{ project.method }}</p>
+  </section>
+  {% endif %}
+
+  {% if project.validation %}
+  <section aria-labelledby="h-validation">
+    <h2 id="h-validation">Validation</h2>
+    <p>What the result was checked against, and how well it agreed.</p>
+    <table class="validation-table">
+      <caption class="visually-hidden">Validation results for {{ project.title }}</caption>
+      <thead>
+        <tr><th scope="col">Check</th><th scope="col">Reference</th><th scope="col">Agreement</th></tr>
+      </thead>
+      <tbody>
+        {% for check in project.validation %}
+        <tr>
+          <td>{{ check.what }}</td>
+          <td>{{ check.reference }}</td>
+          <td>{{ check.result }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  {% if project.outputs %}
+  <section aria-labelledby="h-outputs">
+    <h2 id="h-outputs">Outputs</h2>
+    <ul class="download-list">
+      {% for output in project.outputs %}
+      <li>
+        <a href="{{ '../' * depth }}{{ output.file }}">{{ output.name }}</a>
+        {% if clean(output.description) %}<span class="data-desc">{{ output.description }}</span>{% endif %}
+        {% if clean(output.licence) %}<span class="licence">Licence: {{ output.licence }}</span>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if project.figures %}
+  <section aria-labelledby="h-figures">
+    <h2 id="h-figures">Figures</h2>
+    <div class="figure-grid">
+      {% for figure in project.figures %}
+      <figure>
+        <img src="{{ figure.src }}" alt="{{ figure.alt }}" loading="lazy">
+        {% if clean(figure.caption) %}<figcaption>{{ figure.caption }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+    </div>
+  </section>
+  {% else %}
+  <section aria-labelledby="h-figures">
+    <h2 id="h-figures">Figures</h2>
+    {# No placeholder image is drawn here. The gallery is wired up and stays
+       empty until real figures are added under assets/projects/<slug>/. #}
+    <p class="empty-state">
+      No figures have been supplied for this project yet. Drop image files into
+      <code>assets/projects/{{ project.slug }}/</code> and rebuild.
+    </p>
+  </section>
+  {% endif %}
+
+  {% if project.related %}
+  <section aria-labelledby="h-related">
+    <h2 id="h-related">Related publications</h2>
+    <ul class="related-list">
+      {% for paper in project.related %}
+      <li>
+        <a href="{{ paper.doi_url }}" rel="noopener">{{ paper.title }}</a>
+        <span class="muted">{{ paper.venue }}{% if paper.year %}, {{ paper.year }}{% endif %}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+</article>
+
+{% endblock %}

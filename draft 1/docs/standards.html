@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How I deliver &middot; Omkar Shashikant Ghatage</title>
+<meta name="description" content="Formats, coordinate reference system rules, licensing and validation statements.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-name">Go Lab Geospatial</span>
+      <span class="brand-sub">Omkar Shashikant Ghatage</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects/index.html">Projects</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="standards.html" aria-current="page">Standards</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+<h1>How I deliver</h1>
+<p class="lede">
+  The same rules on every job, stated up front, so nothing about the format of a
+  deliverable has to be negotiated after the analysis is done.
+</p>
+
+<section aria-labelledby="h-formats">
+  <h2 id="h-formats">Formats</h2>
+  <p>Delivered as the format asked for; where no format is specified, this is the default set.</p>
+  <ul class="std-list">
+    <li><strong>Cloud-Optimized GeoTIFF</strong> &mdash; rasters, tiled and with overviews where the size warrants it.</li>
+    <li><strong>GeoPackage</strong> &mdash; vector layers, with a consistent layer and field naming scheme.</li>
+    <li><strong>GeoJSON</strong> &mdash; vector for interchange, where a web-friendly format is needed.</li>
+    <li><strong>LAZ</strong> &mdash; lidar point clouds, kept in the compressed form.</li>
+    <li><strong>CSV with a data dictionary</strong> &mdash; tabular output always ships with a companion dictionary defining every field, its units and its type.</li>
+    <li><strong>STAC or ISO-lite metadata</strong> &mdash; a STAC item, or an ISO 19115-style record, alongside the data itself.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="h-crs">
+  <h2 id="h-crs">Coordinate reference system</h2>
+  <p>
+    The client's pipeline comes first. If your system already has a convention,
+    the output conforms to it and no separate choice is made. Otherwise:
+  </p>
+  <ul class="std-list">
+    <li><strong>WGS 84 (EPSG:4326)</strong> for interchange and web delivery, and <strong>a local UTM zone</strong> for anything involving distance, area or shape measurement.</li>
+    <li>The CRS actually used is recorded in the output metadata and written down in the delivery note. It is never left implicit.</li>
+    <li>Where an input or reference dataset carries its own CRS, that is honoured rather than silently reprojected.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="h-licence">
+  <h2 id="h-licence">Licensing</h2>
+  <p>
+    Every deliverable carries an explicit licence line naming the licence and who
+    holds copyright. Where client data was supplied under NDA, the licence names
+    the client as the rights holder and states the permitted use.
+  </p>
+</section>
+
+<section aria-labelledby="h-validation">
+  <h2 id="h-validation">Validation</h2>
+  <p>
+    Every map ships with a validation statement. That means the reference used
+    for checking, the sample size, and the agreement figures, written in full
+    rather than summarised. Where no independent reference exists, that is stated
+    as well &mdash; an unvalidated result is labelled unvalidated.
+  </p>
+</section>
+
+<section aria-labelledby="h-data-policy">
+  <h2 id="h-data-policy">Data policy</h2>
+  <p>
+    Work is done on open data: Sentinel, Landsat, OpenStreetMap and similar
+    public sources. Proprietary data is used only when a client supplies it under
+    NDA, in which case it is not redistributed and is not shown on this site.
+  </p>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-name">Omkar Shashikant Ghatage &middot; Go Lab Geospatial</p>
+    <p class="footer-note">
+      Maharashtra, India &middot;
+      100% remote, working from India
+      <span class="muted">(working name, not a registered company)</span>
+    </p>
+    <p class="footer-generated muted">Generated 2026-09-29. No tracking, no cookies, no JavaScript.</p>
+  </div>
+</footer>
+
+</body>
+</html>

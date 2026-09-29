@@ -1,0 +1,29 @@
+{
+  "source": "crossref",
+  "doi": "10.1007/s41324-025-00612-5",
+  "title": "Mensuration of FABDEM's vertical accuracy using ICESat-2 photon profiles over sloped terrains",
+  "venue": "Spatial Information Research",
+  "year": 2025,
+  "type": "journal-article",
+  "authors": [
+    {
+      "given": "Subham",
+      "family": "Roy",
+      "orcid": ""
+    },
+    {
+      "given": "Omkar",
+      "family": "Ghatage",
+      "orcid": ""
+    },
+    {
+      "given": "Giribabu",
+      "family": "Dandabathula",
+      "orcid": ""
+    }
+  ],
+  "abstract": null,
+  "license": [],
+  "is_oa": null,
+  "oa_url": null
+}

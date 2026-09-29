@@ -1,0 +1,45 @@
+# Research project, not client work. Labelled as such on the site.
+# Only content present in the CV was used.
+
+title: "Riparian Buffer Delineation in Narrow Stream Corridors"
+slug: "riparian-buffer-corridors"
+
+kind: "research"
+
+summary: >-
+  Developing a high-resolution remote sensing and deep-learning framework for
+  structural canopy mapping.
+
+featured: true
+
+# TODO: no date recorded in the CV. Add the period this work covered.
+date: "TODO"
+
+status: "Manuscript under review"
+
+tags:
+  - "deep learning"
+  - "canopy mapping"
+  - "riparian"
+  - "U-Net"
+
+# TODO: the CV names no specific datasets for this work.
+data: []
+
+# TODO: supply the method. Which architecture, trained on what labels?
+method: "TODO"
+
+# TODO: supply validation figures. A deep-learning canopy map needs an accuracy
+# statement — overall and per class — or it cannot be assessed.
+validation: []
+
+# TODO: supply outputs with licence lines.
+outputs: []
+
+# TODO: add figures to assets/projects/riparian-buffer-corridors/.
+# Suggested: 01-study-area.png, 02-canopy-map.png, 03-accuracy-by-class.png.
+figures: []
+
+# TODO: this manuscript has no DOI yet. Once the journal assigns one, add it
+# under papers: in publications.yaml and reference it here by id.
+related_publications: []

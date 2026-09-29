@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Projects &middot; {{ resume.identity.name }}{% endblock %}
+{% block description %}Project work: the problem, the data, the method, the validation numbers and the outputs.{% endblock %}
+
+{% block content %}
+
+<h1>Projects</h1>
+<p class="lede">
+  Each project records the problem, the data with a source for every layer, the
+  method, what the result was checked against, and the agreement figures. That is
+  the point: the numbers are there to be inspected.
+</p>
+
+{% if projects %}
+<ul class="card-list">
+  {% for project in projects %}
+  <li class="card">
+    <h2><a href="{{ '../' * depth }}{{ project.slug }}.html">{{ project.title }}</a></h2>
+    {% if clean(project.summary) %}<p>{{ project.summary }}</p>{% endif %}
+    <p class="card-meta">
+      {% if clean(project.kind) and project.kind == 'research' %}
+      <span class="pill pill-research">research work</span>
+      {% elif clean(project.kind) and project.kind == 'client' %}
+      <span class="pill">client project</span>
+      {% endif %}
+      {% if clean(project.date) %}<span>{{ project.date }}</span>{% endif %}
+      {% if clean(project.status) %}<span class="pill">{{ project.status }}</span>{% endif %}
+      {% for tag in project.tags or [] %}<span class="tag">{{ tag }}</span>{% endfor %}
+    </p>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="empty-state">
+  <strong>No projects are published yet.</strong> The index is generated from
+  <code>data/projects/</code>, one YAML file per project. Nothing is listed until
+  a real project file exists, because a placeholder card would look like work
+  that has not been done.
+</p>
+{% endif %}
+
+{% endblock %}

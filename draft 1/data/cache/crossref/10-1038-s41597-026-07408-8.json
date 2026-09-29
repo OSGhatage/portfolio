@@ -1,0 +1,49 @@
+{
+  "source": "crossref",
+  "doi": "10.1038/s41597-026-07408-8",
+  "title": "A national-scale sandy beach dataset for India derived from high-resolution satellite imagery and deep learning",
+  "venue": "Scientific Data",
+  "year": 2026,
+  "type": "journal-article",
+  "authors": [
+    {
+      "given": "Giribabu",
+      "family": "Dandabathula",
+      "orcid": ""
+    },
+    {
+      "given": "Subham",
+      "family": "Roy",
+      "orcid": ""
+    },
+    {
+      "given": "Omkar Shashikant",
+      "family": "Ghatage",
+      "orcid": ""
+    },
+    {
+      "given": "Sagar Subhashrao",
+      "family": "Salunkhe",
+      "orcid": ""
+    },
+    {
+      "given": "Durgesh",
+      "family": "Nandani",
+      "orcid": ""
+    },
+    {
+      "given": "Apurba Kumar",
+      "family": "Bera",
+      "orcid": ""
+    },
+    {
+      "given": "Sushil Kumar",
+      "family": "Srivastav",
+      "orcid": ""
+    }
+  ],
+  "abstract": null,
+  "license": [],
+  "is_oa": null,
+  "oa_url": null
+}

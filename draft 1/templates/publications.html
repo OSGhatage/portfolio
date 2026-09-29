@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}Publications &middot; {{ resume.identity.name }}{% endblock %}
+{% block description %}Peer-reviewed publications, fetched automatically from Crossref and OpenAlex and grouped by year.{% endblock %}
+
+{% block content %}
+
+<h1>Publications</h1>
+<p class="lede">
+  Metadata on this page is fetched automatically from Crossref and OpenAlex at
+  build time, not typed by hand. Open-access status comes from the publisher
+  licence, and the link follows it: where a paper is open access, the full text
+  is linked; where it is not, only the DOI is. Paywalls are respected and no
+  unauthorised copy is ever linked.
+</p>
+
+{# by_year is already built newest-first, so no reverse here. #}
+{% for year, items in by_year.items() %}
+<section aria-labelledby="yr-{{ year }}">
+  <h2 id="yr-{{ year }}">{{ year }}</h2>
+
+  <ol class="pub-list">
+    {% for paper in items %}
+    <li class="pub">
+      <p class="pub-title">{{ paper.title }}</p>
+      <p class="pub-authors">
+        {% if paper.authors %}
+          {% set names = paper.authors | map(attribute='family') | list %}
+          {% if names | length > 3 %}
+            {{ names[:3] | join(', ') }} et al.
+          {% else %}
+            {{ names | join(', ') }}
+          {% endif %}
+        {% else %}
+          <span class="muted">Author list not available from Crossref; see the DOI.</span>
+        {% endif %}
+      </p>
+      {% if clean(paper.venue) %}<p class="pub-venue">{{ paper.venue }}</p>{% endif %}
+
+      {% if clean(paper.abstract) %}
+      <details>
+        <summary>Abstract</summary>
+        <div class="pub-abstract">{{ paper.abstract | striptags | safe }}</div>
+      </details>
+      {% else %}
+      <p class="muted small">
+        No abstract is published in the Crossref record for this DOI. It may be
+        available on the publisher's page.
+      </p>
+      {% endif %}
+
+      <p class="pub-links">
+        {% if paper.is_oa and paper.oa_url %}
+          <a class="oa-link" href="{{ paper.oa_url }}" rel="noopener">Read full paper, open access</a>
+          <a href="{{ paper.doi_url }}" rel="noopener">DOI</a>
+        {% elif paper.is_oa %}
+          <a href="{{ paper.doi_url }}" rel="noopener">Open access &mdash; DOI</a>
+        {% elif paper.is_oa is sameas false %}
+          <a href="{{ paper.doi_url }}" rel="noopener">Full text via publisher</a>
+        {% else %}
+          {# Access status could not be confirmed offline. Say that rather than
+             guessing, and do not claim the paper is closed either. #}
+          <a href="{{ paper.doi_url }}" rel="noopener">DOI</a>
+          <span class="muted small">access status not confirmed at build time</span>
+        {% endif %}
+        {% if paper.is_owner %}<span class="pill">co-author</span>{% endif %}
+      </p>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endfor %}
+
+{% if other %}
+<section aria-labelledby="h-other">
+  <h2 id="h-other">Other contributions</h2>
+  <p class="muted small">Items with no DOI, so no citation link is generated for them.</p>
+  <ol class="pub-list">
+    {% for item in other %}
+    <li class="pub">
+      <p class="pub-title">{{ item.title }}</p>
+      <p class="pub-venue">{{ item.venue }}{% if item.year %}, {{ item.year }}{% endif %}</p>
+      <p class="pub-authors">{{ item.authors }}</p>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}
+
+{% if in_press or under_review %}
+<section aria-labelledby="h-unpublished">
+  <h2 id="h-unpublished">Not yet published</h2>
+  <p class="muted small">
+    Listed separately and deliberately without a citation or a DOI, so that
+    nothing in press can be mistaken for a published result.
+  </p>
+  <ul class="related-list">
+    {% for item in in_press %}
+    <li>
+      <strong>{{ item.title }}</strong>
+      <span class="pill">{{ item.status }}</span>
+      <span class="muted">{{ item.summary }}</span>
+    </li>
+    {% endfor %}
+    {% for item in under_review %}
+    <li>
+      <strong>{{ item.title }}</strong>
+      <span class="pill">{{ item.status }}</span>
+      <span class="muted">{{ item.summary }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<p class="colophon">
+  Metadata source: Crossref and OpenAlex. Cached at build time under
+  <code>data/cache/</code> so this page still builds with no network.
+</p>
+
+{% endblock %}

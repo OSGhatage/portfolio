@@ -1,0 +1,158 @@
+# resume.yaml — parsed from OMKAR_GHATAGE_Resume_GIS.md
+#
+# Parsed by hand on 2026-09-29, confirmed against the CV the owner supplied.
+# Every field below traces to that CV. Fields the owner has not supplied are
+# marked `# TODO` and are NOT invented. The builder must skip any field that
+# is still a TODO string rather than rendering it.
+
+identity:
+  name: "Omkar Shashikant Ghatage"
+  business: "Go Lab Geospatial"
+  # TODO: business is a working name, not a registered entity. Wording on the
+  # site should not imply a registered company. Confirm preferred phrasing.
+  business_status: "working name, not yet registered"
+  headline: "Geospatial Analyst | Remote Sensing & Environmental Data Analytics | Python & Machine Learning"
+
+  # TODO: the one-sentence positioning line that sits at the top of the home
+  # page. The prompt calls for a single plain sentence, no hype. Suggest:
+  #   "Research-grade remote sensing and geospatial analysis on open satellite data,
+  #    documented and validated so you can check the numbers yourself."
+  positioning_line: "TODO"
+
+  location:
+    region: "Maharashtra"
+    country: "India"
+    timezone: "IST (UTC+5:30)"
+  working_model: "100% remote, working from India"
+  relocation: "Open to international relocation"
+
+  specialism:
+    domain: "Remote sensing and satellite imagery analysis"
+    data_policy: >-
+      Open data only (Sentinel, Landsat, OSM and similar), unless a client
+      supplies proprietary data under NDA.
+    differentiator: >-
+      Research-grade, documented, validated analysis on open data.
+
+bio:
+  # Used on the About page, lightly trimmed from the CV summary.
+  short: >-
+    GIS and remote sensing professional working across geospatial data
+    management, spatial analysis, Earth observation and environmental
+    monitoring. Experienced in using QGIS, ArcGIS, Python and Google Earth
+    Engine to process and analyse spatial and tabular datasets, including
+    multi-sensor optical, SAR and satellite altimetry data. My research
+    interests focus on using remote sensing, machine learning and large
+    environmental datasets to understand environmental change and its spatial
+    and temporal patterns. Co-author of 11 peer-reviewed publications covering
+    land-cover mapping, aquatic environments, hydrological hazards,
+    bathymetry and DEM validation.
+
+  # The owner decided on 2026-09-29 to drop the years-of-experience count. The
+  # CV said "two years" while the dated employment record below showed more, and
+  # the two contradicted each other. The count is gone; the dated roles carry
+  # the claim instead.
+  audiences: "Academic researchers, and companies training geospatial AI models."
+
+contact:
+  # TODO: owner asked for a work email. The CV only carries a personal gmail.
+  # Nothing was invented in its place.
+  work_email: "TODO"
+  personal_email: "omkarsghatage009@gmail.com"
+  phone: "+91-9075507326"
+  response_window: "one working day"
+
+  links:
+    github: "https://github.com/OSGhatage"
+    linkedin: "https://linkedin.com/in/omkar-ghatage"
+    google_scholar: "https://scholar.google.com/citations?user=CSYobSUAAAAJ&hl=en"
+    # Sourced from Crossref authorship records on two of the owner's papers,
+    # both of which list ORCID 0009-0007-0005-4833 for "Omkar Shashikant
+    # Ghatage". This was not in the CV. The owner confirmed on 2026-09-29 that
+    # this is their record and to keep it.
+    orcid: "https://orcid.org/0009-0007-0005-4833"
+    orcid_verified: true
+
+experience:
+  - role: "Technical Support Person"
+    organisation: "Regional Remote Sensing Centre - West"
+    parent: "NRSC/ISRO"
+    via: "AGA Enterprises"
+    location: "Jodhpur, India"
+    start: "2024-05"
+    end: null            # null = present
+    highlights:
+      - "Lead operational desert locust monitoring and bulletin production for the Scheduled Thar Desert region, integrating multi-sensor satellite imagery with meteorological and ecological data."
+      - "Develop and maintain Python pipelines for large-scale satellite dataset processing and automated locust habitat suitability modelling."
+      - "Support research activities in land-cover mapping, DEM validation, bathymetry and terrain modelling using remote sensing, GIS and machine-learning approaches."
+      - "Debug and optimise geospatial processing workflows and scripts, and assist with troubleshooting during operational and research activities."
+      - "Document analytical workflows and results, and communicate technical findings through maps, reports and scientific outputs."
+      - "Supervise and support intern projects involving satellite data processing and geospatial analysis."
+
+  - role: "Project Trainee (Intern)"
+    organisation: "Regional Remote Sensing Centre - West"
+    parent: "NRSC/ISRO"
+    via: null
+    location: "Jodhpur, India"
+    start: "2024-01"
+    end: "2024-05"
+    highlights:
+      - "Processed satellite data and carried out geospatial analysis using Python for remote sensing applications."
+      - "Conducted research on Digital Bathymetric Elevation Models using ICESat-2 satellite altimetry and remote sensing data."
+
+education:
+  - degree: "M.Tech., Geoinformatics"
+    institution: "Bharathidasan University"
+    location: "Tiruchirappalli, Tamil Nadu"
+    start: "2022"
+    end: "2024"
+    score: "CGPA 7.30/10"
+    grade: "A"
+    thesis: "Digital Bathymetric Elevation Model Using Satellite Altimetry and Remote Sensing"
+
+  - degree: "M.A., Geography"
+    institution: "Shivaji University"
+    location: "Kolhapur, Maharashtra"
+    start: "2020"
+    end: "2022"
+    score: "CGPA 7.04/10"
+    grade: "A+"
+    focus: "Physical Geography, Environmental Geography, Remote Sensing"
+
+  - degree: "B.A., Geography"
+    institution: "Jaysingpur College, Shivaji University"
+    location: "Kolhapur, Maharashtra"
+    start: "2017"
+    end: "2020"
+    score: "66%"
+    grade: "First Class"
+
+competencies:
+  - group: "Remote Sensing & Earth Observation"
+    items: ["Sentinel-2", "Landsat", "ICESat-2", "multispectral and SAR imagery", "satellite image processing", "temporal analysis"]
+  - group: "GIS & Geospatial Analytics"
+    items: ["ArcGIS Pro", "QGIS", "Google Earth Engine", "spatial analysis", "raster and vector processing", "spatial modelling", "terrain analysis"]
+  - group: "Programming & Data Analytics"
+    items: ["Python (NumPy, Pandas, GeoPandas, Rasterio, GDAL, SciPy, Matplotlib)", "JavaScript (GEE API)", "Jupyter", "Git/GitHub"]
+  - group: "Machine Learning"
+    items: ["Scikit-learn", "Random Forest", "XGBoost", "TensorFlow/Keras", "CNN", "U-Net", "model evaluation and hyperparameter tuning"]
+  - group: "Environmental & Aquatic Applications"
+    items: ["Environmental monitoring", "aquatic remote sensing", "satellite-derived bathymetry", "land-cover mapping", "DEM validation", "terrain and hazard analysis"]
+  - group: "Geospatial Data"
+    items: ["HDF5", "NetCDF", "GeoTIFF", "GeoJSON", "Shapefile", "CSV", "multi-source spatial and environmental dataset integration"]
+
+certifications:
+  - name: "SAR Data Processing"
+    issuer: "IIRS/ISRO"
+    date: "2023-10"
+  - name: "Geomatics in Urban Studies"
+    issuer: "IIRS/ISRO"
+    date: "2023-04/2023-05"
+
+languages:
+  - language: "English"
+    level: "professional working proficiency"
+  - language: "Hindi"
+    level: "fluent"
+  - language: "Marathi"
+    level: "native"
