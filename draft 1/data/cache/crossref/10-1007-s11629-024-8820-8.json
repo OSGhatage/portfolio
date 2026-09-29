@@ -1,0 +1,64 @@
+{
+  "source": "crossref",
+  "doi": "10.1007/s11629-024-8820-8",
+  "title": "Performance validation of High Mountain Asia 8-meter Digital Elevation Model using ICESat-2 geolocated photons",
+  "venue": "Journal of Mountain Science",
+  "year": 2024,
+  "type": "journal-article",
+  "authors": [
+    {
+      "given": "Giribabu",
+      "family": "Dandabathula",
+      "orcid": "0000-0003-3245-8094"
+    },
+    {
+      "given": "Subham",
+      "family": "Roy",
+      "orcid": "0009-0007-6704-2781"
+    },
+    {
+      "given": "Omkar Shashikant",
+      "family": "Ghatage",
+      "orcid": "0009-0007-0005-4833"
+    },
+    {
+      "given": "Vaibhav Balaso",
+      "family": "Kolase",
+      "orcid": "0009-0004-9379-2584"
+    },
+    {
+      "given": "Shwetambari",
+      "family": "Satpute",
+      "orcid": "0000-0003-2301-1765"
+    },
+    {
+      "given": "Koushik",
+      "family": "Ghosh",
+      "orcid": ""
+    },
+    {
+      "given": "Sahibnoor",
+      "family": "Kaur",
+      "orcid": ""
+    },
+    {
+      "given": "Satyanarayana",
+      "family": "Pondari",
+      "orcid": ""
+    },
+    {
+      "given": "Apurba Kumar",
+      "family": "Bera",
+      "orcid": ""
+    },
+    {
+      "given": "Sushil Kumar",
+      "family": "Srivastav",
+      "orcid": ""
+    }
+  ],
+  "abstract": null,
+  "license": [],
+  "is_oa": null,
+  "oa_url": null
+}

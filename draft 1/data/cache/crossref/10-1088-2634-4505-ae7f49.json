@@ -1,0 +1,39 @@
+{
+  "source": "crossref",
+  "doi": "10.1088/2634-4505/ae7f49",
+  "title": "Evaluating the suitability of the Global Building Atlas for digital urban infrastructure analysis in India",
+  "venue": "Environmental Research: Infrastructure and Sustainability",
+  "year": 2026,
+  "type": "journal-article",
+  "authors": [
+    {
+      "given": "Giribabu",
+      "family": "Dandabathula",
+      "orcid": "0000-0003-3245-8094"
+    },
+    {
+      "given": "Omkar Shashikant",
+      "family": "Ghatage",
+      "orcid": "0009-0007-0005-4833"
+    },
+    {
+      "given": "Subham",
+      "family": "Roy",
+      "orcid": "0009-0007-6704-2781"
+    },
+    {
+      "given": "Apurba Kumar",
+      "family": "Bera",
+      "orcid": "0000-0001-8214-4398"
+    },
+    {
+      "given": "Sushil Kumar",
+      "family": "Srivastav",
+      "orcid": "0000-0002-3649-8379"
+    }
+  ],
+  "abstract": null,
+  "license": [],
+  "is_oa": null,
+  "oa_url": null
+}

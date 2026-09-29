@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ resume.identity.name }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ clean(resume.bio.short) or resume.identity.headline }}{% endblock %}">
+<link rel="stylesheet" href="{{ '../' * depth }}assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ '../' * depth }}index.html">
+      <span class="brand-name">{{ resume.identity.business }}</span>
+      <span class="brand-sub">{{ resume.identity.name }}</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        {% for _tpl, label, href in nav %}
+        <li><a href="{{ '../' * depth }}{{ href }}"{% if active == label %} aria-current="page"{% endif %}>{{ label }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-name">{{ resume.identity.name }} &middot; {{ resume.identity.business }}</p>
+    <p class="footer-note">
+      {% if clean(resume.identity.location.region) %}
+      {{ resume.identity.location.region }}, {{ resume.identity.location.country }} &middot;
+      {% endif %}
+      {{ clean(resume.identity.working_model) or '' }}
+      {# The business is a working name, not a registered entity. #}
+      {% if resume.identity.business_status %}
+      <span class="muted">(working name, not a registered company)</span>
+      {% endif %}
+    </p>
+    <p class="footer-generated muted">Generated {{ generated_at }}. No tracking, no cookies, no JavaScript.</p>
+  </div>
+</footer>
+
+</body>
+</html>

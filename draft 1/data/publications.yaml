@@ -1,0 +1,147 @@
+# publications.yaml
+#
+# One entry per paper, keyed by DOI. build.py fetches the authoritative
+# metadata (title, authors, year, venue, abstract, open-access status and the
+# OA PDF URL) from Crossref and OpenAlex at build time, caches the response
+# under data/cache/, and falls back to the local fields below if an API is
+# unreachable.
+#
+# The local title/venue/year fields below are NOT hand-typed guesses. Every one
+# was read back from the Crossref record for that DOI on 2026-09-29, so the
+# offline fallback is accurate. Author lists are left to the fetcher; they are
+# long and add nothing to the fallback.
+#
+# Open-access status is deliberately NOT hardcoded here. The fetcher decides it
+# from the licence at build time, and the builder then applies the access rules:
+#   - OA     -> full citation + abstract + "Read full paper, open access" + DOI
+#   - closed -> citation + abstract + DOI labelled "Full text via publisher"
+# Never link to a pirated copy.
+
+papers:
+  # ---- 2026 -------------------------------------------------------------
+  - id: dandabathula-2026-global-building-atlas
+    doi: "10.1088/2634-4505/ae7f49"
+    kind: journal-article
+    fallback_title: "Evaluating the suitability of the Global Building Atlas for digital urban infrastructure analysis in India"
+    fallback_venue: "Environmental Research: Infrastructure and Sustainability"
+    fallback_year: 2026
+    verified_via: crossref
+
+  - id: dandabathula-2026-sandy-beach-dataset
+    doi: "10.1038/s41597-026-07408-8"
+    kind: journal-article
+    fallback_title: "A national-scale sandy beach dataset for India derived from high-resolution satellite imagery and deep learning"
+    fallback_venue: "Scientific Data"
+    fallback_year: 2026
+    verified_via: crossref
+
+  - id: islam-2026-bamboo-mizoram
+    doi: "10.1007/s44274-026-00896-w"
+    kind: journal-article
+    fallback_title: "Mapping bamboo land cover in Mizoram, India using integrated high-resolution satellite data and deep learning"
+    fallback_venue: "Discover Environment"
+    fallback_year: 2026
+    verified_via: crossref
+
+  - id: dandabathula-2026-water-hyacinth
+    doi: "10.1007/s11356-026-38245-2"
+    kind: journal-article
+    fallback_title: "Detection and monitoring of water hyacinth in large lakes of five Indian urban agglomerates using Sentinel-2 and machine learning models"
+    fallback_venue: "Environmental Science and Pollution Research"
+    fallback_year: 2026
+    verified_via: crossref
+
+  - id: dandabathula-2026-ice-patch-collapse
+    doi: "10.1038/s44304-026-00191-x"
+    kind: journal-article
+    fallback_title: "Ice-patch collapse and early-warning implications from a Himalayan flash flood: emerging cryo-hydrological hazards under deglaciation"
+    fallback_venue: "npj Natural Hazards"
+    fallback_year: 2026
+    verified_via: crossref
+
+  # ---- 2025 -------------------------------------------------------------
+  - id: dandabathula-2025-icesat2-atl24
+    doi: "10.1080/01490419.2025.2608329"
+    kind: journal-article
+    fallback_title: "Quantitative validation of ICESat-2 ATL24 in shallow marine environments using reference-grade bathymetric data"
+    fallback_venue: "Marine Geodesy"
+    fallback_year: 2025
+    verified_via: crossref
+
+  - id: dandabathula-2025-dust-storm-height
+    doi: "10.1016/j.atmosenv.2025.121276"
+    kind: journal-article
+    fallback_title: "Determination of dust storm height using weak beam photons from ICESat-2 and relating with vertical wind profile"
+    fallback_venue: "Atmospheric Environment"
+    fallback_year: 2025
+    verified_via: crossref
+
+  - id: dandabathula-2025-dhofar-crater
+    doi: "10.36956/eps.v4i1.1454"
+    kind: journal-article
+    fallback_title: "A Small Impact Crater in the Dhofar Mountains, Sultanate of Oman: Surface Expression from Satellite Imagery and Cues from the Profiles of ICESat-2 Photons"
+    fallback_venue: "Earth and Planetary Science"
+    fallback_year: 2025
+    verified_via: crossref
+
+  - id: roy-2025-fabdem-vertical-accuracy
+    doi: "10.1007/s41324-025-00612-5"
+    kind: journal-article
+    fallback_title: "Mensuration of FABDEM's vertical accuracy using ICESat-2 photon profiles over sloped terrains"
+    fallback_venue: "Spatial Information Research"
+    fallback_year: 2025
+    verified_via: crossref
+
+  # ---- 2024 -------------------------------------------------------------
+  - id: dandabathula-2024-high-mountain-asia-dem
+    doi: "10.1007/s11629-024-8820-8"
+    kind: journal-article
+    fallback_title: "Performance validation of High Mountain Asia 8-meter Digital Elevation Model using ICESat-2 geolocated photons"
+    fallback_venue: "Journal of Mountain Science"
+    fallback_year: 2024
+    verified_via: crossref
+
+  - id: satpute-2024-mauritius-bathymetry
+    doi: "10.2205/2024es000937"
+    kind: journal-article
+    fallback_title: "Optimal Interpolation Method for Generating a Digital Bathymetric Model for Shallow Waters: A Case Study over Mauritius Coast"
+    fallback_venue: "Russian Journal of Earth Sciences"
+    fallback_year: 2024
+    verified_via: crossref
+
+# ---------------------------------------------------------------------------
+# Records with no DOI. These are listed as such and are never passed to the
+# fetcher, and never given a fabricated citation.
+# ---------------------------------------------------------------------------
+
+other_contributions:
+  - id: dandabathula-2025-uttarakhand-atlas
+    kind: symposium
+    title: "3D Perspectives of Uttarakhand from Space"
+    venue: "ISG-ISRS National Symposium, Kolkata"
+    year: 2025
+    note: "Atlas contribution. No DOI."
+    authors: "Dandabathula, G., Roy, S., Ghatage, O. S., Bera, A. K., & Srivastav, S. K."
+
+# ---------------------------------------------------------------------------
+# Unpublished work. Rendered distinctly from the published list, with no
+# citation and no DOI link, so that nothing in press reads as published.
+# ---------------------------------------------------------------------------
+
+in_press:
+  - id: open-access-dem-dune-morphologies
+    title: "Vertical Accuracy of Open-Access DEMs Across Contrasting Dune Morphologies"
+    status: "Accepted; forthcoming"
+    summary: >-
+      Evaluated open-access DEM accuracy across contrasting dune landscapes in
+      arid western India.
+    # TODO: no DOI yet. Add one under papers/ once the journal assigns it.
+
+under_review:
+  - id: riparian-buffer-narrow-corridors
+    title: "Riparian Buffer Delineation in Narrow Stream Corridors"
+    status: "Manuscript under review"
+    summary: >-
+      Developing a high-resolution remote sensing and deep-learning framework
+      for structural canopy mapping.
+    # TODO: no DOI yet. Add one under papers/ if the journal pre-assigns one.

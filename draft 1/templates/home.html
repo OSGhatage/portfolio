@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}{{ resume.identity.name }} &middot; {{ resume.identity.business }}{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <h1 class="hero-title">
+    {# The positioning line is still a TODO in the data, so it is suppressed
+       rather than shown as a placeholder. The CV headline is real content,
+       so it carries the hero in the meantime. #}
+    {% if clean(resume.identity.positioning_line) %}
+      {{ resume.identity.positioning_line }}
+    {% else %}
+      {{ resume.identity.headline }}
+    {% endif %}
+  </h1>
+
+  <p class="hero-lede">
+    Remote sensing and satellite imagery analysis for academic researchers and for
+    companies training geospatial AI models. Work is done on open data only &mdash;
+    Sentinel, Landsat, OpenStreetMap and similar &mdash; unless a client supplies
+    proprietary data under NDA. Every deliverable ships with its validation
+    statement, so the numbers can be checked rather than taken on trust.
+  </p>
+
+  <p class="hero-links">
+    <a class="btn" href="{{ '../' * depth }}projects/index.html">See projects</a>
+    <a class="btn btn-quiet" href="{{ '../' * depth }}publications.html">See publications</a>
+  </p>
+</section>
+
+<section aria-labelledby="h-highlighted">
+  <h2 id="h-highlighted">Highlighted projects</h2>
+  {% if highlighted %}
+    <ul class="card-list">
+      {% for project in highlighted %}
+      <li class="card">
+        <h3><a href="{{ '../' * depth }}projects/{{ project.slug }}.html">{{ project.title }}</a></h3>
+        {% if clean(project.summary) %}<p>{{ project.summary }}</p>{% endif %}
+        <p class="card-meta">
+          {% if clean(project.kind) and project.kind == 'research' %}
+          <span class="pill pill-research">research work</span>
+          {% elif clean(project.kind) and project.kind == 'client' %}
+          <span class="pill">client project</span>
+          {% endif %}
+          {% if clean(project.date) %}<span>{{ project.date }}</span>{% endif %}
+          {% if clean(project.status) %}<span class="pill">{{ project.status }}</span>{% endif %}
+        </p>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="empty-state">
+      <strong>No projects are published yet.</strong> This section is wired up and
+      will fill itself as project files are added to
+      <code>data/projects/</code>. Nothing is shown here in the meantime, because
+      an example project would be indistinguishable from real work.
+    </p>
+  {% endif %}
+</section>
+
+<section aria-labelledby="h-approach">
+  <h2 id="h-approach">How the work is done</h2>
+  <p>
+    Analysis is reproducible rather than anecdotal. Inputs are named with a source
+    link, the method is stated in short, and each result is checked against an
+    independent reference with the agreement figures written down. Where a
+    limitation is known, it is written down too.
+  </p>
+  <p><a href="{{ '../' * depth }}standards.html">How I deliver</a> covers formats, coordinate reference systems, licensing and validation statements.</p>
+</section>
+
+<section aria-labelledby="h-contact">
+  <h2 id="h-contact">Contact</h2>
+  {% if clean(resume.contact.work_email) %}
+  <dl class="contact-list">
+    {% if clean(resume.contact.work_email) %}
+    <dt>Email</dt><dd><a href="mailto:{{ resume.contact.work_email }}">{{ resume.contact.work_email }}</a></dd>
+    {% endif %}
+    {% if clean(resume.contact.phone) %}
+    <dt>Phone</dt><dd>{{ resume.contact.phone }}</dd>
+    {% endif %}
+    {% if clean(resume.identity.location.timezone) %}
+    <dt>Time zone</dt><dd>{{ resume.identity.location.timezone }}</dd>
+    {% endif %}
+    {% if clean(resume.contact.response_window) %}
+    <dt>Response</dt><dd>within {{ resume.contact.response_window }}</dd>
+    {% endif %}
+  </dl>
+  {% else %}
+  {# No work email has been supplied yet, so no address is invented here. #}
+  <p class="empty-state">
+    A work email address has not been published yet. The personal address on file
+    is not shown here as a stand-in.
+  </p>
+  {% endif %}
+
+  <ul class="link-list">
+    {% if clean(resume.contact.links.github) %}<li><a href="{{ resume.contact.links.github }}" rel="me">GitHub</a></li>{% endif %}
+    {% if clean(resume.contact.links.linkedin) %}<li><a href="{{ resume.contact.links.linkedin }}" rel="me">LinkedIn</a></li>{% endif %}
+    {% if clean(resume.contact.links.orcid) %}<li><a href="{{ resume.contact.links.orcid }}" rel="me">ORCID</a></li>{% endif %}
+    {% if clean(resume.contact.links.google_scholar) %}<li><a href="{{ resume.contact.links.google_scholar }}" rel="me">Google Scholar</a></li>{% endif %}
+  </ul>
+</section>
+
+{% endblock %}

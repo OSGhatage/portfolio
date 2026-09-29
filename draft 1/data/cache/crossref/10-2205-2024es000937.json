@@ -1,0 +1,44 @@
+{
+  "source": "crossref",
+  "doi": "10.2205/2024es000937",
+  "title": "Optimal Interpolation Method for Generating a Digital Bathymetric Model for Shallow Waters: A Case Study over Mauritius Coast",
+  "venue": "Russian Journal of Earth Sciences",
+  "year": 2024,
+  "type": "journal-article",
+  "authors": [
+    {
+      "given": "Shwetambari",
+      "family": "Satpute",
+      "orcid": "0000-0003-2301-1765"
+    },
+    {
+      "given": "Subham",
+      "family": "Roy",
+      "orcid": "0009-0007-6704-2781"
+    },
+    {
+      "given": "Omkar Shashikant",
+      "family": "Gatage",
+      "orcid": "0009-0007-0005-4833"
+    },
+    {
+      "given": "Vaibhav Balaso",
+      "family": "Kolase",
+      "orcid": "0009-0004-9379-2584"
+    },
+    {
+      "given": "Suraj Kumar",
+      "family": "Singh",
+      "orcid": ""
+    },
+    {
+      "given": "Giribabu",
+      "family": "Dandabathula",
+      "orcid": "0000-0003-3245-8094"
+    }
+  ],
+  "abstract": null,
+  "license": [],
+  "is_oa": null,
+  "oa_url": null
+}

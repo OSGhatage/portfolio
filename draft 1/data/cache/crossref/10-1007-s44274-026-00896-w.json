@@ -1,0 +1,44 @@
+{
+  "source": "crossref",
+  "doi": "10.1007/s44274-026-00896-w",
+  "title": "Mapping bamboo land cover in Mizoram, India using integrated high-resolution satellite data and deep learning",
+  "venue": "Discover Environment",
+  "year": 2026,
+  "type": "journal-article",
+  "authors": [
+    {
+      "given": "Muhammad Nazrul",
+      "family": "Islam",
+      "orcid": "0009-0008-4214-1027"
+    },
+    {
+      "given": "Omkar Shashikant",
+      "family": "Ghatage",
+      "orcid": "0009-0007-0005-4833"
+    },
+    {
+      "given": "Subham",
+      "family": "Roy",
+      "orcid": "0009-0007-6704-2781"
+    },
+    {
+      "given": "Suraj Kumar",
+      "family": "Singh",
+      "orcid": "0000-0002-9420-2804"
+    },
+    {
+      "given": "Giribabu",
+      "family": "Dandabathula",
+      "orcid": "0000-0003-3245-8094"
+    },
+    {
+      "given": "Apurba Kumar",
+      "family": "Bera",
+      "orcid": "0000-0001-8214-4398"
+    }
+  ],
+  "abstract": null,
+  "license": [],
+  "is_oa": null,
+  "oa_url": null
+}

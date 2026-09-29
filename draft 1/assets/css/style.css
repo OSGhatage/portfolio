@@ -1,0 +1,353 @@
+/* ==========================================================================
+   Go Lab Geospatial — portfolio
+   Light, calm, professional. Near-white ground, slate text, one deep-teal
+   accent. Hairline rules, generous whitespace, no gradients, no animation
+   beyond a short hover. Works with JavaScript disabled (there is none).
+   ========================================================================== */
+
+:root {
+  --bg:        #fbfbfa;
+  --surface:   #ffffff;
+  --ink:       #1f2933;
+  --ink-soft:  #52606d;
+  --ink-muted: #7b8794;
+  --rule:      #e4e7eb;
+  --rule-soft: #eef1f4;
+  --accent:    #0f5c5a;
+  --accent-dk: #0a4341;
+  --accent-bg: #eef5f4;
+
+  --measure: 70ch;
+  --gap: 1.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  font-feature-settings: "kern" 1;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* --- headings ----------------------------------------------------------- */
+
+h1, h2, h3 { line-height: 1.25; color: var(--ink); font-weight: 600; }
+h1 { font-size: 1.85rem; margin: 0 0 .6rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.3rem;  margin: 2.5rem 0 .75rem; letter-spacing: -0.005em; }
+h3 { font-size: 1.05rem; margin: 1.5rem 0 .5rem; }
+
+p, ul, ol, dl, table { max-width: var(--measure); }
+p { margin: 0 0 1rem; }
+ul, ol { margin: 0 0 1rem; padding-left: 1.25rem; }
+li { margin-bottom: .4rem; }
+
+/* --- header ------------------------------------------------------------- */
+
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem 1.5rem;
+  padding-top: 1.15rem;
+  padding-bottom: 1.15rem;
+}
+
+.brand { text-decoration: none; display: block; }
+.brand-name { display: block; font-weight: 600; color: var(--accent); letter-spacing: -0.01em; }
+.brand-sub  { display: block; font-size: .82rem; color: var(--ink-muted); }
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1.15rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: .93rem;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+nav a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+
+/* --- links -------------------------------------------------------------- */
+
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--accent-dk); }
+
+/* --- home hero ---------------------------------------------------------- */
+
+.hero { padding: 3rem 0 1rem; }
+.hero-title {
+  font-size: 1.95rem;
+  max-width: 26ch;
+  margin-bottom: 1rem;
+}
+.hero-lede { font-size: 1.05rem; color: var(--ink-soft); max-width: var(--measure); }
+.hero-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+
+.btn {
+  display: inline-block;
+  padding: .5rem 1.05rem;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-size: .93rem;
+}
+.btn:hover { background: var(--accent-dk); border-color: var(--accent-dk); color: #fff; }
+.btn-quiet { background: transparent; color: var(--accent); }
+.btn-quiet:hover { background: var(--accent-bg); color: var(--accent-dk); }
+
+/* --- cards -------------------------------------------------------------- */
+
+.card-list { list-style: none; padding: 0; max-width: var(--measure); }
+.card {
+  border-top: 1px solid var(--rule);
+  padding: 1.25rem 0;
+}
+.card:last-child { border-bottom: 1px solid var(--rule); }
+.card h2, .card h3 { margin-top: 0; }
+.card p { margin-bottom: .5rem; }
+
+.card-meta { display: flex; flex-wrap: wrap; gap: .5rem; font-size: .84rem; color: var(--ink-muted); }
+
+.pill {
+  display: inline-block;
+  padding: .1rem .5rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  background: var(--surface);
+  font-size: .78rem;
+  color: var(--ink-soft);
+}
+.tag {
+  display: inline-block;
+  padding: .1rem .5rem;
+  border-radius: 2px;
+  background: var(--accent-bg);
+  font-size: .78rem;
+  color: var(--accent-dk);
+}
+
+/* Research work is marked distinctly so it is never read as client work. */
+.pill-research {
+  background: #f2f0e9;
+  border-color: #e2ded0;
+  color: #6b6455;
+}
+
+.callout {
+  border-left: 2px solid var(--accent);
+  background: var(--accent-bg);
+  padding: .75rem 1rem;
+  font-size: .93rem;
+  color: var(--ink-soft);
+  max-width: var(--measure);
+}
+.callout strong { color: var(--ink); }
+
+/* --- lede and empty states ---------------------------------------------- */
+
+.lede { font-size: 1.05rem; color: var(--ink-soft); }
+
+.empty-state {
+  border-left: 2px solid var(--rule);
+  padding: .35rem 0 .35rem 1rem;
+  color: var(--ink-muted);
+  font-size: .93rem;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: .87em;
+  background: var(--rule-soft);
+  padding: .1rem .3rem;
+  border-radius: 2px;
+}
+
+.muted { color: var(--ink-muted); }
+.small { font-size: .87rem; }
+
+/* --- lists of data, standards, links ------------------------------------ */
+
+.std-list, .link-list, .related-list, .data-list, .download-list {
+  list-style: none;
+  padding: 0;
+}
+.link-list { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; font-size: .93rem; }
+
+.data-list li, .download-list li {
+  border-top: 1px solid var(--rule-soft);
+  padding: .7rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .35rem .75rem;
+}
+.data-list li:last-child, .download-list li:last-child { border-bottom: 1px solid var(--rule-soft); }
+.data-name { font-weight: 600; }
+.data-desc { color: var(--ink-muted); font-size: .9rem; }
+.licence { font-size: .8rem; color: var(--ink-muted); font-style: italic; }
+
+/* --- validation table --------------------------------------------------- */
+
+.validation-table { width: 100%; border-collapse: collapse; font-size: .93rem; max-width: 100%; }
+.validation-table th, .validation-table td {
+  text-align: left;
+  padding: .55rem .75rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.validation-table th { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-muted); font-weight: 600; }
+.validation-table td:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* --- figures ------------------------------------------------------------ */
+
+.figure-grid { display: grid; gap: 1.75rem; }
+figure { margin: 0; }
+figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+figcaption { font-size: .85rem; color: var(--ink-muted); margin-top: .5rem; }
+
+/* --- publications ------------------------------------------------------- */
+
+.pub-list { list-style: none; padding: 0; max-width: var(--measure); }
+.pub { border-top: 1px solid var(--rule); padding: 1.25rem 0; }
+.pub:last-child { border-bottom: 1px solid var(--rule); }
+.pub-title { font-weight: 600; margin-bottom: .3rem; }
+.pub-authors { font-size: .88rem; color: var(--ink-soft); margin-bottom: .3rem; }
+.pub-venue { font-size: .92rem; color: var(--ink-soft); font-style: italic; margin-bottom: .5rem; }
+.pub-links { display: flex; flex-wrap: wrap; gap: .5rem .9rem; align-items: center; font-size: .9rem; margin-bottom: 0; }
+.pub-abstract { font-size: .93rem; color: var(--ink-soft); margin-top: .5rem; }
+details summary { cursor: pointer; font-size: .9rem; color: var(--ink-soft); }
+.oa-link { font-weight: 600; }
+
+.colophon {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: .85rem;
+  color: var(--ink-muted);
+}
+
+/* --- entries (experience, education) ------------------------------------ */
+
+.entries { margin: 0; }
+.entry { border-top: 1px solid var(--rule); padding: 1.1rem 0; }
+.entry:last-child { border-bottom: 1px solid var(--rule); }
+.entry dt { display: flex; flex-direction: column; gap: .1rem; margin-bottom: .5rem; }
+.entry-title { font-weight: 600; }
+.entry-org { font-size: .93rem; color: var(--ink-soft); }
+.entry-meta, .entry-thesis { font-size: .85rem; color: var(--ink-muted); }
+.entry dd { margin: 0 0 .35rem 0; font-size: .93rem; color: var(--ink-soft); max-width: var(--measure); }
+
+/* --- skills ------------------------------------------------------------- */
+
+.skill-group { margin-bottom: 1.5rem; }
+.skill-group h3 { margin: 0 0 .4rem; font-size: .95rem; }
+.skill-group ul { display: flex; flex-wrap: wrap; gap: .35rem; list-style: none; padding: 0; margin: 0; }
+.skill-group li {
+  font-size: .85rem;
+  padding: .15rem .55rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* --- contact list ------------------------------------------------------- */
+
+.contact-list { display: grid; grid-template-columns: max-content 1fr; gap: .3rem 1.25rem; font-size: .95rem; }
+.contact-list dt { color: var(--ink-muted); }
+.contact-list dd { margin: 0; }
+
+/* --- project page ------------------------------------------------------- */
+
+.project .back-link { font-size: .9rem; margin-bottom: 1rem; }
+
+/* --- footer ------------------------------------------------------------- */
+
+.site-footer {
+  margin-top: 4rem;
+  border-top: 1px solid var(--rule);
+  background: var(--surface);
+  padding: 2rem 0;
+  font-size: .88rem;
+  color: var(--ink-muted);
+}
+.footer-name { color: var(--ink-soft); margin-bottom: .25rem; }
+.footer-note, .footer-generated { margin: 0 0 .25rem; font-size: .85rem; }
+
+/* --- accessibility ------------------------------------------------------ */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: .6rem 1rem;
+  z-index: 10;
+}
+.skip-link:focus { left: 0; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* --- responsive --------------------------------------------------------- */
+
+@media (max-width: 40rem) {
+  .hero { padding-top: 2rem; }
+  .hero-title { font-size: 1.6rem; }
+  h1 { font-size: 1.55rem; }
+  .header-inner { padding-top: .9rem; padding-bottom: .9rem; }
+  .contact-list { grid-template-columns: 1fr; gap: .1rem; }
+  .contact-list dd { margin-bottom: .6rem; }
+  .validation-table td:last-child { white-space: normal; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

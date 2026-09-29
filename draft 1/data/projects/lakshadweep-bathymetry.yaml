@@ -1,0 +1,68 @@
+# Research project, not client work. Labelled as such on the site.
+# Only content present in the CV was used. Method, validation and outputs are
+# left as TODO and are suppressed by the build rather than invented.
+
+title: "Satellite-Derived Bathymetry for the Lakshadweep Archipelago"
+slug: "lakshadweep-bathymetry"
+
+# kind: research makes the site label this as research work, so it is never
+# read as a client engagement. Set to "client" on a real commissioned project.
+kind: "research"
+
+summary: >-
+  Developed ML-based bathymetric retrieval methods by integrating multispectral
+  imagery and photon altimetry, with emphasis on multi-source data processing,
+  modelling and validation.
+
+featured: true
+
+# TODO: no date recorded in the CV. Add the period this work covered.
+date: "TODO"
+
+# TODO: CV does not state where this work stands. "research" is not a status;
+# say whether it is a thesis, a paper, or ongoing.
+status: "TODO"
+
+tags:
+  - "bathymetry"
+  - "Sentinel-2"
+  - "ICESat-2"
+  - "machine learning"
+
+# TODO: the CV names Sentinel-2 and ICESat-2 but not the specific products,
+# dates or resolutions used. Those need filling in before this page can claim
+# to be reproducible.
+data:
+  # TODO before publishing: the CV names Sentinel-2 and ICESat-2 but not the
+  # specific products, bands, resolution or dates used. Add a description to
+  # each entry once those are known. Leaving description unset means the field
+  # is simply omitted from the page.
+  - name: "Sentinel-2"
+    description: null
+    url: "https://sentiwiki.copernicus.eu/web/sentinel-missions/sentinel-2"
+    url_label: "Sentinel-2 mission"
+    licence: "Open data, free under the Copernicus data policy"
+  - name: "ICESat-2"
+    description: null
+    url: "https://icesat-2.gsfc.nasa.gov/"
+    url_label: "ICESat-2 mission"
+    licence: "Open data, NASA Earthdata"
+
+# TODO: supply the method. Name the model, the features and the key parameters.
+method: "TODO"
+
+# TODO: supply the validation. What was it checked against, and what were the
+# agreement numbers? This section is the reason the site exists, so it should
+# not be left empty on a published project.
+validation: []
+
+# TODO: supply downloadable outputs, each with a licence.
+outputs: []
+
+# TODO: add real figures to assets/projects/lakshadweep-bathymetry/.
+# Suggested: 01-overview.png study area, 02-retrieved-depth.png depth map,
+# 03-validation-scatter.png predicted vs reference. Only reproduce a figure
+# from a paper if that paper's licence allows it.
+figures: []
+
+related_publications: []

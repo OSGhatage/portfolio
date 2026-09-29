@@ -1,0 +1,115 @@
+# TEMPLATE.yaml — copy this to <slug>.yaml to add a project.
+#
+# Delete any section you have nothing real to put in. The builder omits empty
+# sections rather than rendering a heading with nothing under it, so it is fine
+# for this file to be longer than any particular project.
+#
+# The slug must match the filename. reef-bathymetry.yaml -> /projects/reef-bathymetry.html
+
+# Required. The one-line summary shown on the index and at the top of the page.
+title: "Satellite-derived bathymetry for the Lakshadweep islands"
+
+# Used for the meta description. Keep it to one sentence, no adjectives you
+# cannot defend.
+summary: "Bathymetric retrieval for shallow reefs by combining Sentinel-2 reflectance with ICESat-2 photon altimetry."
+
+# Show this project on the home page. At most three are used.
+featured: true
+
+# Sort key and display. ISO-ish year-month sorts correctly; a free-text date
+# such as "2026-03" or "Mar 2026" also works.
+date: "2026-03"
+
+# Where the work actually stands. Be precise: "complete", "in progress",
+# "client report", "internal".
+status: "complete"
+
+tags:
+  - "bathymetry"
+  - "ICESat-2"
+  - "Sentinel-2"
+
+# --- the four sections the site is built to make you answer ----------------
+
+# What was wrong, or missing, before this work. One paragraph. If the reader
+# cannot tell what problem this solved, the project is not ready to publish.
+problem: >-
+  Shallow reef bathymetry around the Lakshadweep islands was not mapped at a
+  resolution that would support anything more than a general outline, and the
+  existing global products are too coarse for the reef flats.
+
+# Every input, named, with a link to where it came from. A reader should be able
+# to fetch the same data and get your numbers. Each item:
+#   name         what it is
+#   description  resolution, date range, anything that matters
+#   url          where to get it
+#   url_label    link text; defaults to "Source"
+#   licence      what you are allowed to do with it
+data:
+  - name: "Sentinel-2 L2A"
+    description: "Surface reflectance, 10 m, 2024-01 to 2024-06"
+    url: "https://dataspace.copernicus.eu/"
+    url_label: "Copernicus Data Space"
+    licence: "Open access, free under the Copernicus data policy"
+  - name: "ICESat-2 ATL08 land ice height"
+    description: "Along-track photon data, ATL08 v006"
+    url: "https://nsidc.org/data/atl08/versions/6"
+    url_label: "NSIDC"
+    licence: "Open access, NASA Earthdata"
+
+# How you did it. Short. Name the algorithm and the key parameters; the site is
+# not a methods paper and the full method belongs in the publication.
+method: >-
+  Per-pixel water depth was retrieved by fitting a semi-empirical relationship
+  between Sentinel-2 band ratios and in-water depth, with the coefficients
+  calibrated on the ATL08 photon returns. Predictions were gridded at 10 m and
+  smoothed only where the signal-to-noise ratio fell below 2.
+
+# What it was checked against, and how well it agreed. This is the section the
+# whole site exists for, so give real numbers or leave the section out. Do not
+# round in your own favour, and do not report a metric you did not compute.
+# Each check:
+#   what       what was validated
+#   reference  the independent data it was checked against
+#   result     the agreement figure, with units
+validation:
+  - what: "Depth, against multibeam soundings"
+    reference: "Shipborne multibeam survey, 214 soundings"
+    result: "RMSE 0.31 m"
+  - what: "Shoreline position"
+    reference: "Manually digitised shoreline from VHR imagery"
+    result: "Mean offset 4.2 m"
+
+# Files the reader can download. Each needs a licence line. A licence you did
+# not choose deliberately is a licence you do not have.
+outputs:
+  - name: "Bathymetry, 10 m GeoTIFF"
+    file: "assets/projects/reef-bathymetry/bathymetry-10m.tif"
+    description: "Cloud-Optimized GeoTIFF, EPSG:4326"
+    licence: "CC BY 4.0, (c) the author"
+
+# --- figures --------------------------------------------------------------
+#
+# The simplest option: drop image files into assets/projects/<slug>/ and name
+# them 01-overview.png, 02-before-after.png, 03-validation-scatter.png. They are
+# picked up automatically in filename order.
+#
+# To control order, captions and alt text, list them explicitly instead. Alt
+# text is not optional for accessibility and is not generated for you: an entry
+# with no alt ships with an empty one, so fill it in.
+#
+# Only reproduce a figure from a publication if that paper's licence allows it,
+# for example CC-BY. Otherwise use your own.
+figures:
+  - src: "01-overview.png"
+    caption: "Study area and retrieved depth"
+    alt: "Map of the Lakshadweep islands with shallow reef bathymetry in depth bands from 0 to 10 metres."
+  - src: "02-before-after.png"
+    caption: "Retrieved bathymetry alongside the previous global product"
+    alt: "Side-by-side comparison showing this study resolving reef channels not present in the previous product."
+
+# --- links to papers ------------------------------------------------------
+#
+# Reference entries in publications.yaml by their id field, not by DOI.
+related_publications:
+  - satpute-2024-mauritius-bathymetry

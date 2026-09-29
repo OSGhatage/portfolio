@@ -1,0 +1,57 @@
+# Research project, not client work. Labelled as such on the site.
+# Only content present in the CV was used.
+
+title: "Vertical Accuracy of Open-Access DEMs Across Contrasting Dune Morphologies"
+slug: "open-access-dem-dune-morphologies"
+
+kind: "research"
+
+summary: >-
+  Evaluated open-access DEM accuracy across contrasting dune landscapes in arid
+  western India.
+
+featured: true
+
+# TODO: no date recorded in the CV. Add the period this work covered.
+date: "TODO"
+
+# The CV describes this as accepted but not yet published, so it must not be
+# presented as a finished publication. The status string carries that through.
+status: "Accepted; forthcoming"
+
+tags:
+  - "DEM validation"
+  - "ICESat-2"
+  - "dune geomorphology"
+  - "open-access data"
+
+# TODO: the CV does not name which DEMs were compared. Name each one, with a
+# link. This matters: the value of the result is precisely which products were
+# checked against which other.
+data: []
+
+# TODO: supply the method, including which ICESat-2 photon product was used and
+# how photon returns were filtered.
+method: "TODO"
+
+# TODO: supply the agreement numbers per DEM. Vertical accuracy is the whole
+# content of this project, so this section cannot be empty.
+validation: []
+
+# TODO: supply outputs with licence lines.
+outputs: []
+
+# TODO: add figures to assets/projects/open-access-dem-dune-morphologies/.
+# Suggested: 01-dune-landforms.png, 02-error-by-dune-type.png,
+# 03-height-difference-profile.png.
+figures: []
+
+# TODO: the paper is accepted but has no DOI yet. Once assigned, add it under
+# papers: in publications.yaml and reference it here by id.
+#
+# There are two closely related published DEM-validation papers, but whether
+# they are part of this same project has not been confirmed, so nothing is
+# linked here rather than asserting a connection that may not exist:
+#   roy-2025-fabdem-vertical-accuracy
+#   dandabathula-2024-high-mountain-asia-dem
+related_publications: []

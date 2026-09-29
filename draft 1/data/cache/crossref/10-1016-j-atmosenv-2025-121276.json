@@ -1,0 +1,39 @@
+{
+  "source": "crossref",
+  "doi": "10.1016/j.atmosenv.2025.121276",
+  "title": "Determination of dust storm height using weak beam photons from ICESat-2 and relating with vertical wind profile",
+  "venue": "Atmospheric Environment",
+  "year": 2025,
+  "type": "journal-article",
+  "authors": [
+    {
+      "given": "Giribabu",
+      "family": "Dandabathula",
+      "orcid": "0000-0003-3245-8094"
+    },
+    {
+      "given": "Subham",
+      "family": "Roy",
+      "orcid": "0009-0007-6704-2781"
+    },
+    {
+      "given": "Omkar",
+      "family": "Ghatage",
+      "orcid": "0009-0007-0005-4833"
+    },
+    {
+      "given": "Apurba Kumar",
+      "family": "Bera",
+      "orcid": ""
+    },
+    {
+      "given": "Sushil Kumar",
+      "family": "Srivastav",
+      "orcid": ""
+    }
+  ],
+  "abstract": null,
+  "license": [],
+  "is_oa": null,
+  "oa_url": null
+}
